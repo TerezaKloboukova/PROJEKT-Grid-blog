@@ -35,6 +35,15 @@ blockquote {
 	--limetka: #c4e538;
 }
 
+.article {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+} 
+
+.h1 {
+	font-size: 1000px;
+}
+
 /*
 	Všimni si, jak jsou zde nadefinované barvy.
 	Potřebný kód barvy si odtamtud můžeš vyzobnout a použít
