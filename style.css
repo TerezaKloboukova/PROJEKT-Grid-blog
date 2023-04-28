@@ -1,30 +1,166 @@
 /* nejsme vcerejsi, pouzivame moderni box model */
-html { box-sizing: border-box; }
-*, :after, :before { box-sizing: inherit; }
-
-
-body {
+html {
+	box-sizing: border-box;
+  }
+  *,
+  :after,
+  :before {
+	box-sizing: inherit;
+  }
+  
+  body {
 	margin: 0;
 	padding: 30px;
-	font-family:  'Alice', serif;
+	font-family: 'Alice', serif;
 	font-size: 18px;
 	line-height: 1.5;
-}
-
-h1, h2, h3 {
+  }
+  
+  h1,
+  h2,
+  h3 {
 	font-family: 'Kaushan Script', cursive;
 	font-weight: normal;
+  }
+  
+  p {
 	margin: 0;
-}
-
-blockquote {
+  }
+  
+  blockquote {
 	font-family: 'Kaushan Script', cursive;
-}
-
-/* --------------------------------------------------- */
-
-/* barvy */
-:root {
+  }
+  
+  /* --------------------------------------------------- */
+  
+  .blog {
+	max-width: 1500px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 1fr 4fr 2fr;
+	grid-auto-rows: auto;
+	gap: 40px;
+  }
+  
+  .blog header,
+  footer {
+	grid-column: 2;
+  }
+  
+  h1 {
+	color: var(--zelena);
+	font-size: 84px;
+	font-weight: bold;
+  }
+  
+  h2 {
+	grid-column: 2;
+	font-size: 64px;
+	margin: 20px 0 0 0;
+	color: var(--zelena);
+  }
+  
+  .meta {
+	color: var(--tmava);
+  }
+  
+  p {
+	grid-column: 2;
+  }
+  
+  blockquote {
+	grid-column: 2;
+	text-align: center;
+	color: var(--svetla);
+	font-size: 36px;
+  }
+  
+  blockquote::before {
+	content: '';
+	background-color: var(--zelena);
+	display: block;
+	width: 100px;
+	height: 2px;
+	margin-bottom: 40px;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  blockquote::after {
+	content: '';
+	background-color: var(--zelena);
+	display: block;
+	width: 100px;
+	height: 2px;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  .tip-vlevo {
+	grid-column: 1;
+	border: 1px solid var(--svetla);
+	background-color: var(--svetla);
+	padding: 4px 8px 4px 6px;
+	text-align: right;
+	padding: 20px;
+	margin: auto;
+	justify-content: center;
+	border-right: 2px solid var(--zluta);
+  }
+  .tip-vlevo img {
+	width: 100%;
+	object-fit: cover;
+  }
+  
+  .tip-vpravo {
+	grid-column: 3;
+	border: 1px solid var(--svetla);
+	background-color: var(--svetla);
+	padding-left: 10px;
+	padding: 20px;
+	margin: auto;
+	justify-content: center;
+	border-left: 2px solid var(--zluta);
+  }
+  
+  .tip-vlevo a {
+	color: var(--cervena);
+  }
+  
+  .tip-vpravo a {
+	color: var(--cervena);
+  }
+  
+  figure {
+	grid-column: 1 / -1;
+  }
+  
+  figure img {
+	width: 100%;
+	object-fit: cover;
+	grid-column: span 3;
+  }
+  
+  figcaption {
+	color: var(--seda);
+  }
+  
+  footer {
+	color: var(--seda);
+	font-size: 14px;
+  }
+  
+  footer a {
+	color: var(--seda);
+  }
+  
+  footer a:hover {
+	color: blue;
+  }
+  
+  /* barvy */
+  :root {
 	--svetla: #edf3f5;
 	--seda: #b2bec3;
 	--tmava: #636e72;
@@ -33,45 +169,35 @@ blockquote {
 	--zluta: #f79f1f;
 	--zelena: #a3cb38;
 	--limetka: #c4e538;
-}
-
-.article {
-	display: grid;
-	grid-template-columns: repeat(10, 1fr);
-} 
-
-.h1 {
-	font-size: 1000px;
-}
-
-/*
+  }
+  
+  /*
 	Všimni si, jak jsou zde nadefinované barvy.
 	Potřebný kód barvy si odtamtud můžeš vyzobnout a použít
 	ve svém kódu, ale existuje i lepší způsob.
-
-  CSS custom properties, někdy také označované jako CSS
-	variables (CSS proměnné), je způsob, jak si	pojmenovat
+  
+	CSS custom properties, někdy také označované jako CSS
+	variables (CSS proměnné), je způsob, jak si pojmenovat
 	nějakou hodnotu a potom ji v kódu opakovaně používat.
 	Často se používá právě pro barvy a další "nastavení".
-
+  
 	Když si chci nějakou hodnotu nadefinovat, použiji zápis
 	--mujnazev: hodnota
 	Když chci, abych mohl hodnotu používat všude v CSS,
 	založím ji uvnitř selektoru :root, takže např.:
 	:root {
-		--mojebarva: #ff8800;
+	  --mojebarva: #ff8800;
 	}
-
+  
 	Chci-li potom dál v CSS hodnotu použít, stačí použít funkci var a v závorce název proměnné.Např.:
 	.odstavec {
-		color: var(--mojebarva);
+	  color: var(--mojebarva);
 	}
-
+  
 	Nemusím si tak pamatovat kódy barev nebo neustále v CSS jezdit nahoru a dolů, abych si je odněkud zkopíroval.
-
+  
 	Více o CSS custom properties:
 	- https://www.w3schools.com/css/css3_variables.asp
 	- https://css-tricks.com/patterns-for-practical-css-custom-properties-use/
 	- https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/
-*/
-
+  */
